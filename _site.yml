@@ -1,9 +1,25 @@
 name: "my-website"
 output_dir: "."
 navbar:
-  title: "My Website"
+  title: "Huertos e inseguridad"
   left:
-    - text: "Home"
+    - text: "Introducción"
+    
+      icon: fa-home
       href: index.html
-    - text: "About"
+    - text: "Análisis descriptivo"
+    
+      icon: fa-gear 
       href: about.html
+    - text: "Conclusiones"
+    
+      icon: fa-question
+      href: conclusiones.html
+output:
+  html_document:
+    theme: lumen
+    highlight: tango
+    include:
+      after_body: footer.html
+    
+    

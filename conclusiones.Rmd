@@ -1,0 +1,14 @@
+---
+title: "Conclusiones y recomendaciones"
+output:
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    collapsed: TRUE
+    smooth_scroll: TRUE
+    code_download: TRUE
+    theme: lumen
+
+---
+
+fhdthrdtju
