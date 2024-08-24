@@ -9,7 +9,8 @@ output:
     smooth_scroll: TRUE
     code_download: TRUE
     theme: lumen
-
+bibliography: biblio.bib
+csl: apa.csl.txt 
 ---
 ```{r setup, include=FALSE}
 library(tidyverse)
@@ -201,7 +202,10 @@ ggplot(df_edades, aes(x = edades_simetria)) +
 ```
 <div style="text-align: justify">
 El gráfico muestra un histograma combinado con una curva de densidad que representa la distribución de las edades de las víctimas de hurto. Como se observa, la distribución de las edades es asimétrica hacia la derecha, lo que significa que la cola en el lado derecho (hacia edades mayores) es más larga que en el lado izquierdo. Esto indica que hay menos víctimas en los rangos de edad más avanzados, pero esas pocas se extienden hacia edades más altas. Por otro lado, a mayor parte de los datos se concentra en el lado izquierdo del gráfico, es decir, en las edades más jóvenes. Este análisis sugiere que los jóvenes adultos son los más afectados por el hurto, lo que podría ser útil para diseñar estrategias de prevención específicas para este grupo de edad. Con lo que respecta a la dispersión,esta es amplia, cubriendo un rango que va desde aproximadamente 14 años hasta 84 años. Esto indica que hay una considerable variabilidad en las edades de los individuos representados. Sin embargo, la dispersión no es uniforme; hay una clara concentración de individuos en el rango de 28 a 35 años, donde se observa la mayor densidad en el histograma. A medida que nos alejamos de este rango central, tanto hacia edades más jóvenes como hacia edades más avanzadas, la frecuencia de individuos disminuye. Esto significa que, aunque la dispersión total abarca un amplio rango de edades, la mayor parte de los individuos se agrupan en torno a un rango más estrecho de edades jóvenes-adultas, lo que también se refleja en la forma de la curva de densidad, que desciende gradualmente a medida que la edad aumenta, evidenciando una menor presencia de individuos en edades avanzadas. 
+
+**Metodología de asimetría y curva de densidad tomado de:**[@caballero1975introduccion]
 <br>
+<div/>
 
 ## Análisis Estadístico Descriptivo para la variable **ESTARURA_AGRESOR**
 
@@ -352,6 +356,8 @@ ggplot(df_estaturas, aes(x = estatura_simetria)) +
 ```
 <div style="text-align: justify">
 La gráfica de densidad y el histograma de las estaturas de los agresores muestra que la distribución de los datos tiene una ligera asimetría positiva, lo que indica que hay una mayor concentración de estaturas en el rango inferior, pero con una cola extendida hacia las estaturas más altas. La mayoría de las estaturas se agrupan alrededor del intervalo de 165.5 cm, donde se observa el pico más alto en la densidad. Los datos se dispersan entre aproximadamente 123.2 cm y 207.8 cm, lo que refleja una amplia variabilidad en las estaturas de los agresores. La curva de densidad sigue una forma similar a una distribución normal, aunque con una leve inclinación hacia la derecha, lo que sugiere que, aunque la mayoría de los agresores tiene una estatura intermedia, hay algunos casos con estaturas considerablemente superiores al promedio.Por lo tanto, se puede decir que la distribución de las estaturas de los agresores es casi simétrica, con solo una leve inclinación hacia las estaturas más altas.
+
+**Metodología de asimetría y curva de densidad tomado de:**[@caballero1975introduccion] 
 <div/>
 <br>
 
@@ -471,7 +477,7 @@ ggplot(top_10, aes(x = reorder(municipios, frecuencia), y = frecuencia, fill = f
   geom_bar(stat = "identity", fill = "steelblue", color = "black",width = 0.7) +
   geom_text(aes(label = frecuencia), hjust = -0.3, size = 3.5) +
   coord_flip() +
-  labs(title = "Top 10 departamentos con más \nhurtos y delincuencia",
+  labs(title = "Top 10 municipios con más \nhurtos y delincuencia",
        x = "Municipios", y = "Frecuencia") +
   theme_minimal() +
   theme(axis.text.y = element_text(size = 11), # Ajustar el tamaño del texto de las categorías
@@ -599,13 +605,13 @@ ggplot(tabla_frecuencias_agresor, aes(x = reorder(agresor, frecuencia), y = frec
   geom_text(aes(label = frecuencia), hjust = -0.3, size = 3.5) +
   coord_flip() +
   labs(title = "Móvil de agresor en el \nmomento del hurto",
-       x = "Municipios", y = "Frecuencia") +
+       x = "Móviles", y = "Frecuencia") +
   theme_minimal() +
-  theme(axis.text.y = element_text(size = 11), # Ajustar el tamaño del texto de las categorías
+  theme(axis.text.y = element_text(size = 11), 
         axis.text.x = element_text(size = 11),
         axis.title.x = element_text(size = 12, face = "bold"),
         axis.title.y = element_text(size = 12, face = "bold", margin = margin(r = 10)),
-        # Ajustar el tamaño del texto de las frecuencias
+        
         plot.title = element_text(size = 16, face = "bold", hjust = 0.1),
         plot.margin = margin(10, 30, 10, 10))+
    expand_limits(y = c(0, 80))
@@ -628,17 +634,14 @@ tabla_victima <- hurtos2 %>%
   mutate(pi = paste0(hi * 100, "%")) %>% 
   rename_with(~ c("$f_i$", "$h_i$", "$p_i$"), c("n", "hi", "pi"))
 
-# Crear la fila de totales
 totales_victima <- tabla_victima %>%
   summarise(`MOVIL VICTIMA` = "Total",
             `$f_i$` = sum(`$f_i$`),
             `$h_i$` = sum(`$h_i$`),
             `$p_i$` = paste0(sum(`$h_i$`) * 100, "%"))
 
-# Añadir la fila de totales a la tabla
 tabla_victima <- bind_rows(tabla_victima, totales_victima)
 
-# Mostrar la tabla con kable
 tabla_victima %>%
   kable(caption = "", align = "lccc") %>%
   kable_classic(full_width = F, html_font = "cambria")
@@ -661,8 +664,8 @@ ggplot(tabla_frecuencias_victima, aes(x = reorder(victima, frecuencia), y = frec
   geom_bar(stat = "identity", fill = "steelblue", color = "black", width = 0.7) +
   geom_text(aes(label = frecuencia), hjust = -0.3, size = 3.5) +
   coord_flip() +
-  labs(title = "Móvil de agresor en el \nmomento del hurto",
-       x = "Municipios", y = "Frecuencia") +
+  labs(title = "Móvil de la victima en el \nmomento del hurto",
+       x = "Móviles", y = "Frecuencia") +
   theme_minimal() +
   theme(axis.text.y = element_text(size = 11), # Ajustar el tamaño del texto de las categorías
         axis.text.x = element_text(size = 11),
@@ -697,10 +700,8 @@ totales_sexo <- tabla_sexo %>%
             `$h_i$` = sum(`$h_i$`),
             `$p_i$` = paste0(sum(`$h_i$`) * 100, "%"))
 
-# Añadir la fila de totales a la tabla
 tabla_sexo <- bind_rows(tabla_sexo, totales_sexo)
 
-# Mostrar la tabla con kable
 tabla_sexo %>%
   kable(caption = "", align = "lccc") %>%
   kable_classic(full_width = F, html_font = "cambria")
@@ -731,7 +732,7 @@ ggplot(tabla_frecuencias_sexo, aes(x = "", y = frecuencia, fill = Sexo)) +
 ```
 <br>
 <div style="text-align: justify">
-Con el presente diagrama de sectores, se visualiza de mejor manera la distribución porcentual de los datos obtenidos con respecto al sexo, mostrando que, en efecto los hombres tienden a presentar más casos de hurto que las mujeres.
+Con el presente diagrama de sectores, se visualiza de mejor manera la distribución porcentual de los datos obtenidos con respecto al sexo, mostrando que, en efecto los hombres tienden a presentar más casos de hurto que las mujeres, lo cual identifica a los hombres como el grupo vulnerable y más expuesto a los casos de hurtos y delincuencia.
 <div/>
 <br>
 
@@ -833,7 +834,7 @@ ggplot(tabla_frecuencias_categoria, aes(x = categoria, y = frecuencia)) +
   geom_bar(stat = "identity", fill = "steelblue", color = "black") +
   geom_text(aes(label = frecuencia), vjust = -0.5, size = 3.5) +
   theme_minimal() +
-  labs(title = "Frecuencia por categoría de huerto", x = "Categoría de gravedad", y = "Frecuencia") +
+  labs(title = "Frecuencia por categoría de hurto", x = "Categoría de gravedad", y = "Frecuencia") +
   theme(
     axis.text.x = element_text(angle = 45, hjust = 1, size = 10),
     axis.text.y = element_text(size = 12),
@@ -857,7 +858,7 @@ Con el presente diagrama de barras verticales, se puede observar claramente que 
 
 ##### **tabla de frecuencia de hurtos por días de la semana**
 
-```{r,echo=FALSE,warning=FALSE}
+```{r,echo=FALSE,warning=FALSE, message=FALSE}
 orden_dia <- c("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo")
 hurtos3 <- read_csv("hurtos3.csv")
 hurtos3$DIA <- factor(hurtos3$DIA, levels = orden_dia, ordered = TRUE)
@@ -1160,7 +1161,7 @@ La gráfica muestra que los hurtos se concentran principalmente en las horas de 
 A continuación, se muestra la tabla de contingencia que muestra la relación entre la variable cualitativa **CATEGORIAS** y la variable cuantitativa **EDAD**:
 <div/>
 
-```{r, echo=FALSE, warning=FALSE}
+```{r, echo=FALSE, warning=FALSE,message=FALSE}
 library(reshape2)
 library(DT)
 # Tabla de contingencia
@@ -1216,6 +1217,7 @@ El gráfico de cajas y bigotes revela que existe una relación inversa entre la 
 
 En cuanto a la variabilidad de las edades, las categorías "Alto" y "Medio" muestran una mayor dispersión, lo que indica que hay una gama más amplia de edades afectadas en estos casos. Por otro lado, las categorías "Muy Alto", "Bajo" y "Muy Bajo" presentan una menor variabilidad, con edades más concentradas alrededor de la mediana. Es importante destacar que no se observan datos atípicos significativos en ninguna de las categorías, lo que sugiere que las edades reportadas se distribuyen de manera consistente dentro de los rangos esperados para cada grupo de hurto, sin presencia de valores extremos que podrían distorsionar el análisis. Esto refuerza la validez de las tendencias observadas en el gráfico.
 <div/>
+<br>
 
 ### 3.1 Relación entre sexo y categorías de gravedad de hurto 
 
@@ -1289,3 +1291,6 @@ tabla_kable_catarmas
 <div style="text-align: justify">
 Las armas también es una variable que se puede analizar en esta tabla. En este caso la categoría “Muy alto” no presenta ningún empleo de armas, sin embargo, en la categoría “alto” que trae a colación 2 tipos de armas nuevas: armas de fuego (14.29%) y armas blancas (28.57%). En este caso aun teniendo 2 nuevas armas la tendencia es que la mayoría de los hurtos en esta categoría se realizan sin el empleo de ningún arma (57.14%).En la categoría “Media” la cual posee 3 tipos de armas distintos: Arma blanca (10%), arma de fuego (20%), contundente (16.67%) y sin empleo de armas (53.33), en esta categoría nuevamente se cumple la predicción mencionada anteriormente y es que la mayoría porcentual de estos hurtos se realizaron sin empleo de armas. En adición para la categoría “bajo” hay 4 tipos de armas: Arma blanca (18.75%), arma de fuego (22.95%), contundentes (12.5%), cortantes (2.08%), no reportado y sin uso de armas. En los postulados anteriores se cumple la premisa de que el mayor porcentaje de hurtos se efectúan sin uso de armas (41.67%), seguido por armas de fuego. Por último, la categoría de “muy bajo” solo hay presencia de 2 tipos de armas: Arma blancas y contundentes. Está a diferencia de la anteriores el mayor porcentaje de hurtos recae en las armas blancas con un 50%, contradiciendo la hipótesis anterior. En adición, los crímenes cometidos sin empleo de armas siguen siendo altos en esta categoría con un 35.71%. En síntesis, en la mayoría de las categorías el hurto que más se efectúa se realiza sin la ayuda de armas, posteriormente los robos de menor categoría tienden a usar armas de fuego, a medida que se va subiendo la categoría se tiene una preferencia por arma blanca y en categorías más altas no se usa ningún tipo de arma.
 <div/>
+<br>
+
+# Bibliografía

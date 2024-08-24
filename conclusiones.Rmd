@@ -10,5 +10,42 @@ output:
     theme: lumen
 
 ---
+Son conclusiones son las siguientes: 
 
-fhdthrdtju
+<div style="text-align: justify">
+- Este análisis estadístico realizado puede ser una herramienta que ofrece un panorama a la situación de los hurtos en Colombia, sin embargo, en la base de datos proporcionada hay una falta de cobertura geográfica lo que puede traer como consecuencia sesgos a la hora de analizar el fenómeno. Para poder ofrecer una visión más precisa recae la necesidad de recolectar más datos donde se incluyan más regiones y más municipios, esto con el fin de comprender mejor las dinámicas de hurto del país y esto recae en la responsabilidad de conocer completamente la diversidad de los datos en estos entornos sociales. 
+<div/>
+<br>
+
+<div style="text-align: justify">
+- La mayoría de las víctimas oscilan entre los 31 años, lo de que indica que las victimas más comunes son personas jóvenes, esto implica que, aunque hay personas con edades mayores que afecta la media, la mayoría del estudio respalda la premisa de que las víctimas son jóvenes. Gracias al estudio del rango se pueden observar que la variabilidad en las edades de las victimas es muy grande, siendo este de 65 años, a su vez la varianza y la desviación estándar reflejan que hay una dispersión considerable en las edades, o en otras palabras una diversidad notoria en dichos datos, esto respaldado por el coeficiente de variación que indica que las edades están dispersas en un 40%. 
+<div/>
+<br>
+
+<div style="text-align: justify">
+- La estatura en este caso es casi simétrica y con una dispersión estable o moderada. La mayoría de las estaturas se encuentra alrededor de 167 cm y su asimetría es poca. Es decir, la estatura de los agresores es bien distribuida hacia la media, con una pequeña tendencia hacia las estaturas bajas. 
+<div/>
+<br>
+
+<div style="text-align: justify">
+- En cuanto a los datos analizados observarnos con respecto a la frecuencia de delitos cometidos en relación con los departamentos que estos se ven focalizados en tres departamentos, siendo Cundinamarca, Antioquia y Valle los de mayor porcentaje, consideramos que lo anterior puede atribuirse a varios factores. Estos departamentos suelen concentrar grandes poblaciones urbanas, lo que aumenta las oportunidades para la comisión de delitos y la visibilidad de estos. Además, factores socioeconómicos, como desigualdad y desempleo, pueden contribuir a tasas más altas de criminalidad.  Por lo tanto, consideramos importante implementar estrategias de prevención de delitos y aumentar la presencia policial en estos departamentos, sin descuidar los otros.  
+<div/>
+<br>
+
+<div style="text-align: justify">
+- La mayoría de los hurtos en la base de datos analizada se pueden clasificar como de gravedad baja o muy baja, lo que indica que la gran mayoría de los hurtos se consideran menores en términos de agresión. Adicionalmente muchos de estos robos no involucran un uso de armas, esto promueve la premisa de que los hurtos menores van a predominar. A medida que se sube en la categoría de gravedad, se observa una tendencia hacia el uso de armas blancas en lugar de armas de fuego. En las categorías más bajas, se utilizan más armas de fuego, mientras que, en las categorías más altas, no se reporta el uso de armas.
+<div/>
+<br>
+
+<div style="text-align: justify">
+- Los hurtos se concentran entre jueves y sábado siendo el viernes el día con más casos. Esto puede estar relacionado con la magnitud de personas que participan de eventos sociales o comunitarios en estos días en Colombia, siendo estos días los preferidos por los colombianos para salir. De nuevo se refuerza la idea de incrementar la seguridad los días de mayor incidencia sin descuidar los otros días con un constante monitoreo.  
+<div/>
+<br>
+
+<div style="text-align: justify">
+- La mayoría de los crímenes cometidos fueron cometidos entre las 9am y las 12pm esto puede deberse a que muchas personas están activas y transitando por áreas públicas, lo que puede ofrecer más oportunidades para delitos como robos o hurtos. Además, este período puede coincidir con el inicio de la jornada laboral, cuando las personas están en movimiento o llegan a sus lugares de trabajo, lo que puede aumentar la exposición a situaciones delictivas. Cabe resaltar que el siguiente intervalo con más incidencia de crímenes es de las 12am y las 3am, lo cual es de esperar ya que los crímenes pueden aumentar debido al consumo de alcohol y drogas, la menor vigilancia y la reducción de la actividad en las calles.  
+<div/>
+<br>
+
+<div style="text-align: justify">
+- La importancia de este tipo de estudios puede promover un desarrollo de políticas de seguridad en Colombia que contribuya a la mejora y disminución de delitos. Adicionalmente se pueden tomar medidas efectivas e inmediatas para proteger a los grupos más vulnerables. En ese sentido, con una correcta evaluación de las estrategias se pueden mejorar y a su vez promocionar un bienestar comunitario para los habitantes de este hermoso país, creando un panorama informado y activo en seguridad publica donde se protejan los habitantes, se optimicen los recursos que se gastan y mejorar las políticas que respaldan la seguridad en cada rincón del territorio nacional. 

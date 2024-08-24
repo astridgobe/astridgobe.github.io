@@ -1,12 +1,12 @@
 name: "my-website"
 output_dir: "."
 navbar:
-  title: "Huertos e inseguridad"
+  title: "Hurtos e inseguridad"
   left:
     - text: "Introducción"
-    
       icon: fa-home
       href: index.html
+      
     - text: "Análisis descriptivo"
     
       icon: fa-gear 
